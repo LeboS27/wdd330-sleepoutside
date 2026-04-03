@@ -11,8 +11,144 @@
     <header class="divider" id="main-header"></header>
 
     <main class="divider">
-      <section class="products">
+      <section class="checkout">
         <h2>Review &amp; Place your Order</h2>
+
+        <div class="checkout-wrapper">
+          <!-- Checkout Form -->
+          <form class="checkout-form" name="checkout-form" novalidate>
+            <fieldset>
+              <legend>Customer Name</legend>
+              <label for="fname">First Name</label>
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                autocomplete="given-name"
+                required
+              />
+
+              <label for="lname">Last Name</label>
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                autocomplete="family-name"
+                required
+              />
+            </fieldset>
+
+            <fieldset>
+              <legend>Address</legend>
+              <label for="street">Street Address</label>
+              <input
+                type="text"
+                id="street"
+                name="street"
+                autocomplete="street-address"
+                required
+              />
+
+              <label for="city">City</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                autocomplete="address-level2"
+                required
+              />
+
+              <label for="state">State</label>
+              <input
+                type="text"
+                id="state"
+                name="state"
+                maxlength="2"
+                pattern="[A-Za-z]{2}"
+                title="2-letter state abbreviation"
+                autocomplete="address-level1"
+                required
+              />
+
+              <label for="zip">Zip Code</label>
+              <input
+                type="text"
+                id="zip"
+                name="zip"
+                pattern="\d{5}(-\d{4})?"
+                title="5-digit ZIP code"
+                autocomplete="postal-code"
+                required
+              />
+            </fieldset>
+
+            <fieldset>
+              <legend>Payment</legend>
+              <label for="cardNumber">Credit Card Number</label>
+              <input
+                type="text"
+                id="cardNumber"
+                name="cardNumber"
+                maxlength="16"
+                pattern="\d{16}"
+                title="16-digit card number"
+                required
+              />
+
+              <label for="expiration">Expiration Date</label>
+              <input
+                type="text"
+                id="expiration"
+                name="expiration"
+                placeholder="MM/YY"
+                pattern="(0[1-9]|1[0-2])\/\d{2}"
+                title="Expiration date in MM/YY format"
+                required
+              />
+
+              <label for="code">Security Code</label>
+              <input
+                type="text"
+                id="code"
+                name="code"
+                maxlength="4"
+                pattern="\d{3,4}"
+                title="3 or 4-digit security code"
+                required
+              />
+            </fieldset>
+
+            <button type="button" id="checkoutSubmit" class="button">
+              Place Order
+            </button>
+          </form>
+
+          <!-- Order Summary -->
+          <div class="order-summary">
+            <h3>Order Summary</h3>
+            <table class="order-summary__table">
+              <tr>
+                <th>Items (<span id="item-count">0</span>):</th>
+                <td id="subtotal">$0.00</td>
+              </tr>
+              <tr>
+                <th>Tax (6%):</th>
+                <td id="tax">--</td>
+              </tr>
+              <tr>
+                <th>Shipping:</th>
+                <td id="shipping">--</td>
+              </tr>
+              <tr class="order-summary__total">
+                <th>Order Total:</th>
+                <td id="order-total">--</td>
+              </tr>
+            </table>
+            <p class="order-summary__note">
+              Enter your zip code above to see shipping and total.
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
